@@ -3,21 +3,19 @@ import { connect } from 'react-redux';
 import SearchBar from './SearchBar';
 
 const SearchPanel = ({ term, loading, onTermChanged, onSearchClick, onClearClick }) => (
-  <div>
-    <SearchBar 
-      term={term} 
-      loading={loading} 
-      onTermChanged={onTermChanged}
-      onSearchClick={onSearchClick}
-      onClearClick={onClearClick}
-      />
-  </div>
+  <SearchBar
+    term={term}
+    loading={loading}
+    onTermChanged={onTermChanged}
+    onSearchClick={onSearchClick}
+    onClearClick={onClearClick}
+    />
 );
 
 const mapStateToProps = state => {
   return {
-    term: state.term || '', //todo: fix
-    loading: state.loading || false
+    term: state.term,
+    loading: state.loading
   };
 };
 

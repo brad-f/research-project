@@ -1,13 +1,12 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
+import Toolbar from 'material-ui/Toolbar';
+import Typography from 'material-ui/Typography';
 
 export default () => (
-  <div className="row">
-    <div className="col">
-      <AppBar title="Research Project" 
-        showMenuIconButton={ false }
-        style={{ paddingLeft: '1rem' }} 
-        />
-    </div>
-  </div>
+  <AppBar position="static">
+    <Toolbar>
+      <h3>RESEARCH PROJECT</h3>
+    </Toolbar>
+  </AppBar>
 );

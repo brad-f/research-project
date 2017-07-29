@@ -1,13 +1,10 @@
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import * as colors from 'material-ui/styles/colors';
+import createPalette from 'material-ui/styles/palette';
+import createMuiTheme from 'material-ui/styles/theme';
+import { red, blue } from 'material-ui/colors';
 
-export default getMuiTheme({
-  palette: {
-    primary1Color: colors.blue900,
-    accent1Color: colors.red700,
-    textColor: colors.blue900,
-  },
-  appBar: {
-    height: 50,
-  },
+export default createMuiTheme({
+  palette: createPalette({
+    primary: blue,
+    accent: red
+  })
 });
