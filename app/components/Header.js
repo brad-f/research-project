@@ -6,7 +6,9 @@ import Typography from 'material-ui/Typography';
 export default () => (
   <AppBar position="static">
     <Toolbar>
-      <h3>RESEARCH PROJECT</h3>
+      <Typography>
+        RESEARCH PROJECT
+      </Typography>
     </Toolbar>
   </AppBar>
 );
