@@ -1,38 +1,43 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
 
-const Spinner = ({ loading }) => (
-  loading ? (
-    <span>
-      <i className="fa fa-refresh fa-spin fa-3x fa-fw loading"></i>
-      <span className="sr-only">Loading...</span>
-    </span>
-  ) : null
+import Button from 'material-ui/Button';
+import CircularProgress from 'material-ui/Progress/CircularProgress';
+import Grid from 'material-ui/Grid';
+import Input from 'material-ui/Input';
+
+const Progress = ({ loading }) => (
+  loading ? (<CircularProgress />) : null
 );
 
 const SearchBar = ({ term, loading, onTermChanged, onSearchClick, onClearClick }) => (
-  <div className="row align-items-center search-panel">
-    <div className="col-sm-8">
-      <TextField name="query"
-        hintText="Search Index"
-        fullWidth={true}
-        value={term}
-        onChange={(evt, value) => onTermChanged(value)} />
-    </div>
-    <div className="col-sm-4">
-      <RaisedButton 
-        style={{margin: '1rem 1rem 0rem 0rem'}} 
-        label="SEARCH" primary={true} 
-        onTouchTap={onSearchClick} />
-      <RaisedButton
-        style={{margin: '1rem 1rem 0rem 0rem'}}
-        label="CLEAR"
-        secondary={true} 
-        onTouchTap={onClearClick} />
-      <Spinner loading={loading} />
-    </div>
+  <div>
+    <Grid container align="center" justify="center">
+      <Grid item xs={6}>
+        <Input
+          type="text"
+          value={term}
+          fullWidth={true}
+          onChange={e => onTermChanged(e.target.value)} />
+      </Grid>
+    </Grid>
+    <br />
+    <Grid container align="center" justify="center">
+      <Grid item xs={1}>
+        <Button raised color="primary"
+          onTouchTap={onSearchClick}
+          style={{ textAlign: 'center' }}>
+          SEARCH
+        </Button>
+      </Grid>
+      <Grid item xs={1}>
+        <Button raised color="accent"
+          onTouchTap={onClearClick}
+          style={{ textAlign: 'center' }}>
+          CLEAR
+        </Button>
+      </Grid>
+    </Grid>
   </div>
 );
 
