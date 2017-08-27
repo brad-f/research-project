@@ -10,11 +10,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import theme from './theme';
 import App from './components/App';
 
-const initialState = {
-  term: '',
-  loading: false
-};
-const store = createStore(reducers, initialState);
+const store = createStore(reducers);
 
 const Main = () => (
   <Provider store={store}>

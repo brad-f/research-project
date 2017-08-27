@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SearchBar from './SearchBar';
+import * as actions from '../actions';
 
 const SearchPanel = ({ term, loading, onTermChanged, onSearchClick, onClearClick }) => (
   <SearchBar
@@ -22,13 +23,13 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onTermChanged: term => {
-      dispatch({ type: 'SEARCH_TERM_CHANGED', term, loading: false })
+      dispatch(actions.searchTermChanged(term))
     },
     onSearchClick: () => {
-      dispatch({ type: 'SEARCH', loading: true })
+      dispatch(actions.startSearch())
     },
     onClearClick: () => {
-      dispatch({ type: 'CLEAR', term: '', loading: false });
+      dispatch(actions.clearSearch());
     }
   };
 };
