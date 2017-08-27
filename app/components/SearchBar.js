@@ -5,6 +5,7 @@ import Button from 'material-ui/Button';
 import CircularProgress from 'material-ui/Progress/CircularProgress';
 import Grid from 'material-ui/Grid';
 import Input from 'material-ui/Input';
+import Typography from 'material-ui/Typography';
 
 const Progress = ({ loading }) => (
   loading ? (<CircularProgress />) : null
@@ -27,14 +28,18 @@ const SearchBar = ({ term, loading, onTermChanged, onSearchClick, onClearClick }
         <Button raised color="primary"
           onTouchTap={onSearchClick}
           style={{ textAlign: 'center' }}>
-          SEARCH
+          <Typography>
+            SEARCH
+          </Typography>
         </Button>
       </Grid>
       <Grid item xs={1}>
         <Button raised color="accent"
           onTouchTap={onClearClick}
           style={{ textAlign: 'center' }}>
-          CLEAR
+          <Typography>
+            CLEAR
+          </Typography>
         </Button>
       </Grid>
     </Grid>

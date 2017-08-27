@@ -10,10 +10,14 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import theme from './theme';
 import App from './components/App';
 
-require('./index.css');
+const initialState = {
+  term: '',
+  loading: false
+};
+const store = createStore(reducers, initialState);
 
 const Main = () => (
-  <Provider store={createStore(reducers)}>
+  <Provider store={store}>
     <MuiThemeProvider theme={theme}>
       <App />
     </MuiThemeProvider>
